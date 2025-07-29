@@ -80,7 +80,7 @@ const SetupCompany = () => {
   return (
     <div>
       <Navbar />
-      <motion.div className="max-w-xl mx-auto my-10 shadow-lg p-6 rounded-md "
+      <motion.div className="max-w-xl mx-auto my-6 md:my-10 shadow-lg p-4 md:p-6 rounded-md mx-4"
       initial={{opacity:0,x:100}}
       animate={{opacity:1,x:0}}
       exit={{opacity:0,x:-100}}
@@ -90,7 +90,7 @@ const SetupCompany = () => {
         className="w-full"
         >
           <div className="mb-6">
-            <h1 className="font-bold text-xl">Setup Your Company</h1>
+            <h1 className="font-bold text-lg md:text-xl">Setup Your Company</h1>
           </div>
           <div className="flex flex-col gap-4">
             <div>

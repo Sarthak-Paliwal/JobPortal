@@ -35,24 +35,24 @@ const CategoryCarousel = () => {
     navigate("/browse");    
 }
 return (
-    <div className="mt-10 mb-10">
+    <div className="mt-6 md:mt-10 mb-6 md:mb-10 px-4">
         <Carousel
-            className="w-full max-w-160 mx-auto"
+            className="w-full max-w-7xl mx-auto"
             plugins={[plugin.current]}
             // onMouseEnter={plugin.current.stop}
             // onMouseLeave={plugin.current.reset}
         >
             <CarouselContent>
                 {category.map((cat, index) => (
-                    <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3 ">
-                        <Button variant="outline" className="rounded-full" onClick={()=>handleSearch(cat)}>
+                    <CarouselItem key={index} className="basis-1/2 sm:basis-1/3 md:basis-1/4 lg:basis-1/5">
+                        <Button variant="outline" className="rounded-full text-xs md:text-sm w-full" onClick={()=>handleSearch(cat)}>
                             {cat}
                         </Button>
                     </CarouselItem>
                 ))}
             </CarouselContent>
-            <CarouselPrevious />
-            <CarouselNext />
+            <CarouselPrevious className="hidden md:flex" />
+            <CarouselNext className="hidden md:flex" />
         </Carousel>
     </div>
 );

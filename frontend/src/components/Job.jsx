@@ -38,9 +38,9 @@ const Job = ({job}) => {
         </p>
         <h1 className="font-bold text-lg mb-3">{job?.title}</h1>
         <div className="flex gap-2 items-center flex-wrap">
-          <Badge variant="ghost" className="text-[#687FE5] font-bold">{job?.position}</Badge>
+          <Badge variant="ghost" className="text-[#687FE5] font-bold">{job?.position} openings</Badge>
           <Badge variant="ghost" className="text-[#687FE5] font-bold">{job?.jobType}</Badge>
-          <Badge variant="ghost" className="text-[#687FE5] font-bold">{job?.salary}</Badge>
+          <Badge variant="ghost" className="text-[#687FE5] font-bold">{job?.salary}/pm</Badge>
         </div>
       </div>
       <div className="flex items-center gap-4 mt-4">

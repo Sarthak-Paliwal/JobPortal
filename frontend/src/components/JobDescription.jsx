@@ -68,24 +68,24 @@ const handleApply=async()=>{
   return (
     <>
       <Navbar />
-      <div className="max-w-7xl mx-auto my-10">
-        <h1 className="font-bold text-xl ">{currJob?.title}</h1>
-        <div className="flex items-center justify-between">
-          <div className="flex gap-2 items-center mt-4">
+      <div className="max-w-7xl mx-auto my-6 md:my-10 px-4 md:px-6">
+        <h1 className="font-bold text-lg md:text-xl mb-4">{currJob?.title}</h1>
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+          <div className="flex flex-wrap gap-2 items-center">
             <Badge variant="ghost" className="text-[#687FE5] font-bold">
-              {currJob?.position}
+              {currJob?.position} openings
             </Badge>
             <Badge variant="ghost" className="text-[#687FE5] font-bold">
               {currJob?.jobType}
             </Badge>
             <Badge variant="ghost" className="text-[#687FE5] font-bold">
-              {currJob?.salary}
+              {currJob?.salary}/per month
             </Badge>
           </div>
           <Button
             disabled={isApplied}
             onClick={isApplied ? null : handleApply}
-            className={`rounded-lg ${
+            className={`rounded-lg w-full sm:w-auto ${
               isApplied
                 ? "bg-gray-600 hover:bg-gray-600 cursor-not-allowed"
                 : "bg-black hover:bg-black cursor-pointer"
@@ -94,63 +94,63 @@ const handleApply=async()=>{
             {isApplied ? "Already Applied" : "Apply Now"}
           </Button>
         </div>
-        <div className="my-10">
-          <h1 className="border-b-2 border-b-gray-300 font-medium py-2">
+        <div className="my-8 md:my-10">
+          <h1 className="border-b-2 border-b-gray-300 font-medium py-2 mb-6">
             Job Description
           </h1>
-          <div className="my-4">
-            <h1 className="font-bold my-1">
-              Role:
-              <span className="pl-4 font-normal text-gray-800">
+          <div className="space-y-4 md:space-y-6">
+            <div className="flex flex-col sm:flex-row sm:items-center">
+              <h2 className="font-bold text-sm md:text-base min-w-[120px]">Role:</h2>
+              <span className="pl-0 sm:pl-4 font-normal text-gray-800 text-sm md:text-base">
                 {currJob?.title}
               </span>
-            </h1>
-            <h1 className="font-bold my-1">
-              Location:
-              <span className="pl-4 font-normal text-gray-800">
+            </div>
+            <div className="flex flex-col sm:flex-row sm:items-center">
+              <h2 className="font-bold text-sm md:text-base min-w-[120px]">Location:</h2>
+              <span className="pl-0 sm:pl-4 font-normal text-gray-800 text-sm md:text-base">
                 {currJob?.location}
               </span>
-            </h1>
-            <h1 className="font-bold my-1">
-              Description:
-              <span className="pl-4 font-normal text-gray-800">
+            </div>
+            <div className="flex flex-col sm:flex-row sm:items-center">
+              <h2 className="font-bold text-sm md:text-base min-w-[120px]">Experience:</h2>
+              <span className="pl-0 sm:pl-4 font-normal text-gray-800 text-sm md:text-base">
+                {currJob?.experienceLevel} Years
+              </span>
+            </div>
+            <div className="flex flex-col sm:flex-row sm:items-center">
+              <h2 className="font-bold text-sm md:text-base min-w-[120px]">Salary:</h2>
+              <span className="pl-0 sm:pl-4 font-normal text-gray-800 text-sm md:text-base">
+                {currJob?.salary}
+              </span>
+            </div>
+            <div className="flex flex-col sm:flex-row sm:items-center">
+              <h2 className="font-bold text-sm md:text-base min-w-[120px]">Total Applicants:</h2>
+              <span className="pl-0 sm:pl-4 font-normal text-gray-800 text-sm md:text-base">
+                {currJob?.application?.length || 0}
+              </span>
+            </div>
+            <div className="flex flex-col sm:flex-row sm:items-center">
+              <h2 className="font-bold text-sm md:text-base min-w-[120px]">Posted Date:</h2>
+              <span className="pl-0 sm:pl-4 font-normal text-gray-800 text-sm md:text-base">
+                {currJob?.createdAt ? currJob.createdAt.slice(0, 10) : ""}
+              </span>
+            </div>
+            <div className="flex flex-col">
+              <h2 className="font-bold text-sm md:text-base mb-2">Description:</h2>
+              <span className="font-normal text-gray-800 text-sm md:text-base">
                 {currJob?.description}
               </span>
-            </h1>
-            <h1 className="font-bold my-1">
-              Requirements:
-              <span className="pl-4 font-normal text-gray-800">
+            </div>
+            <div className="flex flex-col">
+              <h2 className="font-bold text-sm md:text-base mb-2">Requirements:</h2>
+              <div className="font-normal text-gray-800 text-sm md:text-base">
                 {Array.isArray(currJob?.requirements)
                   ? currJob.requirements.join(", ")
                   : currJob?.requirements
                       ?.split(",")
-                      .map((req, idx) => <div key={idx}>{req.trim()}</div>)}
-              </span>
-            </h1>
-            <h1 className="font-bold my-1">
-              Experience:
-              <span className="pl-4 font-normal text-gray-800">
-                {currJob?.experienceLevel} Years
-              </span>
-            </h1>
-            <h1 className="font-bold my-1">
-              Salary:
-              <span className="pl-4 font-normal text-gray-800">
-                {currJob?.salary}
-              </span>
-            </h1>
-            <h1 className="font-bold my-1">
-              Total Applicants:
-              <span className="pl-4 font-normal text-gray-800">
-                {currJob?.application?.length || 0}
-              </span>
-            </h1>
-            <h1 className="font-bold my-1">
-              Posted Date:
-              <span className="pl-4 font-normal text-gray-800">
-                {currJob?.createdAt ? currJob.createdAt.slice(0, 10) : ""}
-              </span>
-            </h1>
+                      .map((req, idx) => <div key={idx} className="mb-1">{req.trim()}</div>)}
+              </div>
+            </div>
           </div>
         </div>
       </div>

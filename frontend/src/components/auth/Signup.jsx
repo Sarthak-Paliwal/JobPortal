@@ -68,14 +68,14 @@ const Signup = () => {
       <div className="flex items-center mx-auto justify-center max-w-7xl">
         <motion.form
           onSubmit={submitHandler}
-          className="w-1/2 shadow-lg rounded-md p-4 my-10"
+          className="w-[85%] lg:w-1/2 shadow-lg rounded-md p-4 my-10"
           initial={{opacity:0,x:100}}
           animate={{opacity:1,x:0}}
           exit={{opacity:0,x:-100}}
           transition={{duration:0.5}}
         >
           <h1 className="text-xl mb-5 font-bold">Sign Up</h1>
-          <div className="my-2">
+          <div>
             <Label>Full Name</Label>
             <Input
               type="text"
@@ -83,9 +83,10 @@ const Signup = () => {
               value={input.fullName}
               name="fullName"
               onChange={changeEventHandler}
+              className="my-2"
             />
           </div>
-          <div className="my-2">
+          <div>
             <Label>Email</Label>
             <Input
               type="email"
@@ -93,9 +94,10 @@ const Signup = () => {
               value={input.email}
               name="email"
               onChange={changeEventHandler}
+              className="my-2"
             />
           </div>
-          <div className="my-2">
+          <div>
             <Label>Phone Number</Label>
             <Input
               type="text"
@@ -103,9 +105,10 @@ const Signup = () => {
               value={input.phoneNumber}
               name="phoneNumber"
               onChange={changeEventHandler}
+              className="my-2"
             />
           </div>
-          <div className="my-2">
+          <div>
             <Label>Password</Label>
             <Input
               type="password"
@@ -113,12 +116,22 @@ const Signup = () => {
               value={input.password}
               name="password"
               onChange={changeEventHandler}
+              className="my-2"
             />
           </div>
-          <div className="flex items-center justify-between gap-3">
+          <div className="flex flex-col items-start gap-3">
+            <div className="flex items-center gap-2 w-full sm:w-auto">
+              <Label>Profile</Label>
+              <Input
+                accept="image/*"
+                type="file"
+                className="cursor-pointer my-2"
+                onChange={changeFileHandler}
+              />
+            </div>
             <RadioGroup
               defaultValue="student"
-              className="flex items-center gap-4 my-5"
+              className="flex items-center my-2"
             >
               <div className="flex items-center gap-3">
                 <Input
@@ -143,15 +156,6 @@ const Signup = () => {
                 <Label htmlFor="r2">Recruiter</Label>
               </div>
             </RadioGroup>
-            <div className="flex items-center gap-2">
-              <Label>Profile</Label>
-              <Input
-                accept="image/*"
-                type="file"
-                className="cursor-pointer"
-                onChange={changeFileHandler}
-              />
-            </div>
           </div>
           {
             loading ?<Button className="w-full my-4"><Loader2 className="mr-2 h-4 w-4 animate-spin"/></Button>: <Button type="submit" className="w-full my-4">

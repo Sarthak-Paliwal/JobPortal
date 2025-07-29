@@ -30,8 +30,8 @@ const JobApplicants = () => {
   return (
     <>
     <Navbar/>
-    <div className="max-w-7xl mx-auto">
-        <h1 className='text-lg my-5 font-bold'>Total Applicants ({allApplicants?.length})</h1>
+    <div className="max-w-7xl mx-auto px-4">
+        <h1 className='text-lg md:text-xl my-4 md:my-5 font-bold'>Total Applicants ({allApplicants?.length})</h1>
         <ApplicantsTable/>
     </div>
     </>

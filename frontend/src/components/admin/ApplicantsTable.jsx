@@ -36,31 +36,40 @@ const ApplicantsTable = () => {
   }
 
   return (
+    <div className="overflow-x-auto">
       <Table>
           <TableCaption>A list of your recent applied user</TableCaption>
           <TableHeader>
               <TableRow>
-                  <TableHead>Full Name</TableHead>
-                  <TableHead>Email</TableHead>
-                  <TableHead>Contact</TableHead>
-                  <TableHead>Resume</TableHead>
-                  <TableHead>Date</TableHead>
-                  <TableHead>Status</TableHead>
-                  <TableHead className="text-right">Action</TableHead>
+                  <TableHead className="min-w-[120px]">Full Name</TableHead>
+                  <TableHead className="min-w-[180px]">Email</TableHead>
+                  <TableHead className="min-w-[120px]">Contact</TableHead>
+                  <TableHead className="min-w-[150px]">Resume</TableHead>
+                  <TableHead className="min-w-[100px]">Date</TableHead>
+                  <TableHead className="min-w-[100px]">Status</TableHead>
+                  <TableHead className="text-right min-w-[80px]">Action</TableHead>
               </TableRow>
           </TableHeader>
           <TableBody>
                 {allApplicants && allApplicants?.map((item) => (
                     <TableRow key={item?._id}>
-                      <TableCell>{item?.applicant?.fullName}</TableCell>
-                      <TableCell>{item?.applicant?.email}</TableCell>
-                      <TableCell>{item?.applicant?.phoneNumber}</TableCell>
-                      <TableCell className="text-blue-600 cursor-pointer"><a href={item?.applicant?.profile?.resume} target="_blank" rel="noopener noreferrer">{item?.applicant?.profile?.resumeOriginalName}</a></TableCell>
-                      <TableCell>{item?.createdAt?.split("T")[0]}</TableCell>
-                      <TableCell><Badge variant={item?.status === "accepted" ? "success" : "destructive"}>{item?.status}</Badge></TableCell>
-                      <TableCell className="float-right cursor-pointer">
+                      <TableCell className="font-medium">{item?.applicant?.fullName}</TableCell>
+                      <TableCell className="text-sm">{item?.applicant?.email}</TableCell>
+                      <TableCell className="text-sm">{item?.applicant?.phoneNumber}</TableCell>
+                      <TableCell className="text-blue-600 cursor-pointer text-sm">
+                        <a href={item?.applicant?.profile?.resume} target="_blank" rel="noopener noreferrer" className="hover:underline">
+                          {item?.applicant?.profile?.resumeOriginalName}
+                        </a>
+                      </TableCell>
+                      <TableCell className="text-sm text-gray-500">{item?.createdAt?.split("T")[0]}</TableCell>
+                      <TableCell>
+                        <Badge variant={item?.status === "accepted" ? "success" : "destructive"} className="text-xs">
+                          {item?.status}
+                        </Badge>
+                      </TableCell>
+                      <TableCell className="text-right cursor-pointer">
                           <Popover>
-                              <PopoverTrigger><MoreHorizontal /></PopoverTrigger>
+                              <PopoverTrigger><MoreHorizontal className="h-4 w-4" /></PopoverTrigger>
                               <PopoverContent className="w-32">
                                   {
                                       shortlistingStatus.map((sts, idx) => {
@@ -68,8 +77,8 @@ const ApplicantsTable = () => {
                                               <div
                                                   key={idx}
                                                   onClick={() => statusHandler(sts, item?._id)}
-                                                  className="flex w-fit items-center gap-2 my-2 cursor-pointer">
-                                                  <span>{sts}</span>
+                                                  className="flex w-fit items-center gap-2 my-2 cursor-pointer hover:bg-gray-100 p-2 rounded">
+                                                  <span className="text-sm">{sts}</span>
                                               </div>
                                           )
                                       })
@@ -81,6 +90,7 @@ const ApplicantsTable = () => {
               ))}
           </TableBody>
       </Table>
+    </div>
   )
 }
 export default ApplicantsTable;

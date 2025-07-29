@@ -38,29 +38,30 @@ const CreateCompany = () => {
   return (
     <div>
       <Navbar />
-      <motion.div className="max-w-2xl mx-auto"
+      <motion.div className="max-w-2xl mx-auto px-4"
       initial={{opacity:0,x:100}}
       animate={{opacity:1,x:0}}
       exit={{opacity:0,x:-100}}
       transition={{duration:0.5}}
       >
-        <div className="my-10">
-          <h1 className="font-bold text-2xl">Your Company Name</h1>
-          <p className="text-gray-600">
+        <div className="my-6 md:my-10">
+          <h1 className="font-bold text-xl md:text-2xl">Your Company Name</h1>
+          <p className="text-gray-600 text-sm md:text-base">
             Name your company, you can change it later
           </p>
         </div>
         <Label>Company Name</Label>
         <Input type={"text"} className={"my-2"} placeholder="Company Name" onChange={(e)=>setCompanyName(e.target.value)}/>
 
-        <div className="flex items-center justify-end gap-5 my-10 ">
+        <div className="flex flex-col sm:flex-row items-center justify-end gap-3 md:gap-5 my-6 md:my-10">
           <Button
             onClick={() => navigate("/admin/companies")}
             variant={"outline"}
+            className="w-full sm:w-auto"
           >
             Cancel
           </Button>
-          <Button onClick={registerCompany}>Continue</Button>
+          <Button onClick={registerCompany} className="w-full sm:w-auto">Continue</Button>
         </div>
       </motion.div>
     </div>

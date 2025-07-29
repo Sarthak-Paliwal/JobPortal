@@ -21,10 +21,10 @@ useEffect(()=>{
     <div>
       <Navbar />
       
-      <div className="max-w-6xl mx-auto my-10">
-        <div className="flex items-center gap-5 justify-between">
-        <Input className="w-fit" placeholder="Filter by name" onChange={(e)=>setSearchCompany(e.target.value)}/>
-        <Button onClick={()=>navigate("/admin/companies/create")}>New Company</Button>
+      <div className="max-w-6xl mx-auto my-6 md:my-10 px-4">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 justify-between mb-6">
+        <Input className="w-full sm:w-80" placeholder="Filter by name" onChange={(e)=>setSearchCompany(e.target.value)}/>
+        <Button onClick={()=>navigate("/admin/companies/create")} className="w-full sm:w-auto">New Company</Button>
         </div>
         <CompaniesTable/>
       </div>

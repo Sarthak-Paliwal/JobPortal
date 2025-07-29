@@ -56,7 +56,7 @@ const Login = () => {
       <div className="flex items-center mx-auto justify-center max-w-7xl">
         <motion.form
           onSubmit={onSubmit}
-          className="w-1/2 shadow-lg rounded-md p-4 my-10"
+          className="w-[85%] lg:w-1/2 shadow-lg rounded-md p-4 my-10"
           initial={{opacity:0,x:100}}
           animate={{opacity:1,x:0}}
           exit={{opacity:0,x:-100}}
