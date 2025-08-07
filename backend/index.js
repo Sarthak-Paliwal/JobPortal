@@ -10,9 +10,10 @@ import path from "path"
 const app=express();
 import dotenv from 'dotenv';
 dotenv.config({});
-//middleware
+//connecting database
 connectDB();
 const _dirname=path.resolve();
+//middleware
 app.use(express.json());//parsing to json
 app.use(express.urlencoded({extended:true }));
 app.use(cookieParser());
