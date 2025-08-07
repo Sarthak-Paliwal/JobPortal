@@ -33,7 +33,7 @@ return (
                 onChange={(e)=>setSearch(e.target.value)}
                 value={search}
                 />
-                <Button onClick={handleSearch} className="rounded-r-full bg-[#090040] px-3 md:px-4 py-2 md:py-3">
+                <Button onClick={handleSearch} className="rounded-r-full bg-[#090040] px-3 md:px-4 py-2 md:py-3 h-12">
                     <Search className='h-4 w-4 md:h-5 md:w-5'/>
                 </Button>
             </div>

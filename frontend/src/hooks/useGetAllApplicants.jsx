@@ -12,7 +12,7 @@ const useGetAllApplicants = ({jobId}) => {
                 const res=await axios.get(`${APPLICATION_API_ENDPOINTS}/${jobId}/applicants`,{withCredentials:true})
                 if(res.data.success){
                     dispatch(setAllApplicants(res.data.job.application || []));
-                    console.log(res.data.job.application);
+                   
                 }
             } catch (error) {
                 console.log(error);

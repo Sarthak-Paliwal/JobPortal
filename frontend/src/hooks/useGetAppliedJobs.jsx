@@ -12,7 +12,7 @@ const useGetAppliedJobs = () => {
                 const res=await axios.get(`${APPLICATION_API_ENDPOINTS}/get`,{withCredentials:true})
                 if(res.data.success){
                     dispatch(setAppliedJobs(res.data.application || []));
-                    console.log(res.data.application);
+                   
                 }
             } catch (error) {
                 console.log(error);

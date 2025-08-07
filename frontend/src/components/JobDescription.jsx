@@ -34,17 +34,10 @@ const JobDescription = () => {
   const currJob = useSelector((state) => state.job.singleJob);
   
   // Debug: Log the application data and user data
-  console.log("Current Job:", currJob);
-  console.log("User ID:", user?.id);
-  console.log("Applications:", currJob?.application);
-  
-  const isApplied =
+   const isApplied =
     currJob?.application?.some(
       (app) => {
-        console.log("Checking app:", app);
-        console.log("App applicant:", app.applicant);
-        console.log("User ID:", user?.id);
-        console.log("User _id:", user?._id);
+       
         // Check both id and _id fields
         return app.applicant?.toString() === user?.id?.toString() || 
                app.applicant?.toString() === user?._id?.toString();
@@ -55,7 +48,7 @@ const handleApply=async()=>{
     const res=await axios.get(`${APPLICATION_API_ENDPOINTS}/apply/${jobId}`,{
       withCredentials:true
     })
-    console.log(res.data)
+    
     if(res.data.success){
       dispatch(setSingleJob({...currJob,application:res.data.application}))
       toast.success(res.data.message);

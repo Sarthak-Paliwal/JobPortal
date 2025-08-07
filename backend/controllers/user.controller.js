@@ -149,7 +149,7 @@ export const updateProfile = async (req, res) => {
           resource_type: "auto"
         });
       } catch (uploadError) {
-        console.log("Resume upload error:", uploadError);
+        
         return res.status(500).json({
           message: "Failed to upload resume",
           success: false,
@@ -171,7 +171,6 @@ export const updateProfile = async (req, res) => {
           ]
         });
       } catch (uploadError) {
-        console.log("Profile photo upload error:", uploadError);
         return res.status(500).json({
           message: "Failed to upload profile photo",
           success: false,
@@ -226,7 +225,6 @@ export const updateProfile = async (req, res) => {
       success: true,
     });
   } catch (error) {
-    console.log("Update profile error:", error);
     return res.status(500).json({
       message: "Internal server error",
       success: false,
