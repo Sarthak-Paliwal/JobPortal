@@ -11,6 +11,7 @@ const app=express();
 import dotenv from 'dotenv';
 dotenv.config({});
 //middleware
+connectDB();
 const _dirname=path.resolve();
 app.use(express.json());//parsing to json
 app.use(express.urlencoded({extended:true }));
@@ -31,7 +32,6 @@ app.get('*', (req, res) => {
     res.sendFile(path.resolve(_dirname, "frontend", "dist", "index.html"));
 });
 app.listen(Port,()=>{
-    connectDB();
     console.log("Server running");
 
 })
